@@ -40,7 +40,7 @@ $chatbotUrl = isset($_POST['chatbotUrl']) ? $_POST['chatbotUrl'] : 'https://ai-p
 
 /* the email send to */
 $sendTo = 'appletree@diebotaniker.de';
-#$sendTo = 'adoptimizemk@gmail.com';
+$sendTo = 'adoptimizemk@gmail.com';
 
 /*EOF CONFIG *********************************************/
 /*EOF CONFIG *********************************************/
@@ -193,7 +193,7 @@ URL: '.$url.'
             <div class="area-b">
                 <div id="iframe-placeholder" class="iframe-container">
                     <p>
-                    <form name="demoAdm" method="POST">
+                    <form name="demoAdm" id="demoAdm" method="POST">
                         <?php
                             if(!empty($error)) {
                                 echo '<b style="color:red">';
@@ -252,15 +252,7 @@ URL: '.$url.'
 
                         </table>
                         <input type="submit">
-<script>
-  function resetFormAndReload() {
-    // Reset the form to its initial state
-    document.getElementById('demoAdm').reset();
-    
-    // Reload the entire page
-    window.location.reload();
-  }
-</script>
+
                         
                     
                     </form>
@@ -277,6 +269,20 @@ URL: '.$url.'
             <p>&copy; 2025 dieBOTaniker&copy; <br><a href="https://www.diebotaniker.de/impressum/" target="dieBotaniker">Impressum</a> <a href="https://www.diebotaniker.de/datenschutz/" target="dieBotaniker">Datenschutz</a></p>
         </footer>
     </div>
+<script>
+  function resetFormAndReload() {
+    // Reset the form to its initial state
+    const container = document.getElementById('demoAdm');
+    const inputs = container.querySelectorAll('input');
 
+    inputs.forEach(input => {
+        input.value = '';
+    });
+
+    container.submit();
+    // Reload the entire page
+    // window.location.reload();
+  }
+</script>
 </body>
 </html>
