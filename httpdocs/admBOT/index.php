@@ -1,6 +1,9 @@
 <?php 
 
 /* 
+    * copyright
+    * Mon Aug 11 12:39:38 PM CEST 2025 Mathias E. Koch  <mk@adoptimize.de>
+*
 * the interface creates a webpage for new customers to test our bot
 *  serveral jobs are done
 * custom BASIC AUTH Created
@@ -11,8 +14,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-#print_r($_POST); die;
-
+/* CONFIG *********************************************/
+/* CONFIG *********************************************/
+/* CONFIG *********************************************/
 
 /* this is the template which is used to create the customers welcome page
 * it is out of reach for any body who has a ftp access, so that it wont get wrecked
@@ -34,6 +38,16 @@ $mainDir = '../';
 /* default chatbot url */
 $chatbotUrl = isset($_POST['chatbotUrl']) ? $_POST['chatbotUrl'] : 'https://ai-platform.kauz.ai/chat/main/?group=DieBOTaniker';
 
+/* the email send to */
+$sendTo = 'appletree@diebotaniker.de';
+#$sendTo = 'adoptimizemk@gmail.com';
+
+/*EOF CONFIG *********************************************/
+/*EOF CONFIG *********************************************/
+/*EOF CONFIG *********************************************/
+
+
+
 
 
 /* local functions */
@@ -45,10 +59,6 @@ require __DIR__.'/PHPMailer-master/src/PHPMailer.php';
 require __DIR__.'/PHPMailer-master/src/SMTP.php';
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-/* the email send to */
-$sendTo = 'appletree@diebotaniker.de';
-$sendTo = 'adoptimizemk@gmail.com';
 
 
     if(isset($_POST) && !empty($_POST)) {
