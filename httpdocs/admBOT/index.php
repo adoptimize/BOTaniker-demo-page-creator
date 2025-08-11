@@ -40,7 +40,7 @@ $chatbotUrl = isset($_POST['chatbotUrl']) ? $_POST['chatbotUrl'] : 'https://ai-p
 
 /* the email send to */
 $sendTo = 'appletree@diebotaniker.de';
-$sendTo = 'adoptimizemk@gmail.com';
+#$sendTo = 'adoptimizemk@gmail.com';
 
 /*EOF CONFIG *********************************************/
 /*EOF CONFIG *********************************************/
@@ -70,10 +70,10 @@ use PHPMailer\PHPMailer\Exception;
         } 
         if(empty($_POST['pass'])) {
             $error['pass'] = 'Passwort angeben!';
-        } 
+        }
 
         if(empty($_POST['unternehmensname'])) {
-            $error['pass'] = 'Ein Name für das Unternehmen um einen Ordner für den Demo-Bot zu kreieren wird benötigt!';
+            $error['unternehmensname'] = 'Ein Name für das Unternehmen um einen Ordner für den Demo-Bot zu kreieren wird benötigt!';
         } 
 
 
@@ -220,7 +220,7 @@ URL: '.$url.'
                             <td valign="top"><input type="text" name="user" value="<?php echo @$_POST['user'] ?>" /></td>
                         </tr>
                         <tr>
-                            <td valign="top">BPasswort für den Zugang:</td>
+                            <td valign="top">Passwort für den Zugang:</td>
                             <td valign="top"><input type="text" name="pass" value="<?php echo @$_POST['pass'] ?>" /></td>
                         </tr>
                         <tr>
