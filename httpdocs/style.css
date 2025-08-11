@@ -1,0 +1,182 @@
+:root {
+    --primary-color: #2b392a;     /* Dunkelgrün aus diebotaniker.de */
+    --secondary-color: #c9c5b2;   /* Cremefarbe aus diebotaniker.de */
+    --accent-color: #f6e6d1;      /* Akzentfarbe / helles Beige */
+    --dark-blue: #1A1A36;        /* Dunkelblau aus dem Hintergrundbild */
+	--white: #ffffff;          /* Weiß für Kontraste */
+    --logo-color: #2b392a; /* Dunkle Schriftfarbe für bessere Lesbarkeit */
+
+    --text-color-light: var(--accent-color); /* Helle Textfarbe für dunklen Hintergrund */
+    --text-color-dark: var(--primary-color);  /* Dunkle Textfarbe für helle Hintergründe */
+    /* --background-color: var(--dark-blue); */
+    --background-color: var(--white);
+    --border-color: var(--dark-blue);
+    --footer-color: var(--primary-color);
+}
+
+/* Grundlegendes Styling */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text-color-light); /* Standardtextfarbe ist jetzt hell */
+    background-color: var(--background-color);
+}
+body {
+    /* background-image: url('bg_demobot.png'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Hält das Bild fixiert, sodass der Inhalt scrollt */
+    opacity: 0.9;
+}
+
+/* Fokus-Stil für Barrierefreiheit (wichtig!) */
+a:focus, button:focus, input:focus, select:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-image: url('bg_demobot.png'); */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+		border: 10px solid black;
+}
+
+/* Inhalt, der scrollt */
+.content-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Header, Footer und Logo-Styling */
+.header, .footer {
+    color: var(--primary-color);
+    /* background-color: var(--white); */
+    background-color: var(--white);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+
+} 
+.footer {
+    opacity: 0.8; /* Leicht transparent */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo, .footer-logo {
+    height: 30px; /* Kleinere Höhe, um dem Webseiten-Logo zu entsprechen */
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+		color: var(--primary-color);
+		font-size: 1.2rem; /* responsive Schriftgröße */
+}
+
+/* Hauptinhaltsbereich (Mobile Ansicht) */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+/* Bereiche A und B - Ohne Hintergrund, mit gestricheltem Rand */
+.area-a, .area-b {
+    /* background-color: var(--dark-blue); /*transparent; /* Hintergrundfarbe entfernt */
+    border: 2px dashed var(--border-color); /* Gestrichelter Rand */
+    border-radius: 8px;
+    box-shadow: none; /* Schatten entfernt */
+    padding: 20px;
+	opacity: 0.8; /* Leicht transparent */
+    color: var(--text-color-dark); /* Helle Textfarbe für besseren Kontrast */
+}
+
+.welcome-box {
+    text-align: center;
+}
+
+.welcome-box img {
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.welcome-box h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    /*color: var(--text-color-light);*/
+}
+
+.iframe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 50vh;
+    text-align: center;
+    color: var(--text-color-light);
+}
+.iframe-container iframe {
+    width: 100%; 
+    height: 70vh; 
+    border: none; 
+    display: block; 
+    border-radius: 30px;
+}
+
+/* Footer-Text */
+.footer p {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+}
+
+/* Desktop-Ansicht: Media Query für Breiten ab 768px */
+@media (min-width: 768px) {
+    .content-container {
+        padding: 20px;
+    }
+
+    .header, .area-a, .area-b, .footer {
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .area-a {
+        flex-basis: 30%;
+        max-width: 30%;
+    }
+
+    .area-b {
+        flex-basis: 70%;
+        max-width: 70%;
+    }
+}
